@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from __future__ import absolute_import, division, print_function
+
 
 # import vim
 import subprocess
@@ -35,7 +35,7 @@ def decorate_text(text, color):
 def get_tasks(tags):
 
     # run taskwarrior export
-    command = ['task', 'rc.json.depends.array=no', 'export'] + tags
+    command = ['task', 'rc.json.depends.array=no'] + tags + ['export']
     data = subprocess.check_output(command, stderr=subprocess.DEVNULL)
     data = data.decode('utf-8')
     data = data.replace('\n', '')
