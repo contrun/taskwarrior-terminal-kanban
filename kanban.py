@@ -35,8 +35,7 @@ def decorate_text(text, color):
 def get_tasks(tags):
 
     # run taskwarrior export
-    command = ['task', 'rc.json.depends.array=no'] + tags 
-    command += 'export'
+    command = ['task', 'rc.json.depends.array=no'] + tags + ['export']
     data = subprocess.check_output(command, stderr=subprocess.DEVNULL)
     data = data.decode('utf-8')
     data = data.replace('\n', '')
